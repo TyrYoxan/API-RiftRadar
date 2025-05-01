@@ -1,0 +1,12 @@
+services:
+  go-backend:
+    image: golang:1.22-bookworm
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    command: sh -c "go run main.go"
+    env_file:
+      - .env
+    restart: unless-stopped
